@@ -1,0 +1,14 @@
+name: DeathTP
+main: net.javeh.deathtp.Main
+version: 1.0
+api-version: 1.13
+commands:
+   recover:
+          description: TPs to death location
+          usage: /recover
+   deathcompass:
+          description: Points compass to death location
+          usage: /deathlocation
+   resetcompass:
+          description: resets compass
+          usage: /resetcompass
