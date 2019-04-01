@@ -30,13 +30,7 @@ public class DeathCompassCommand implements CommandExecutor {
 			Location deathlocation = (DeathListener.map.get(player.getName().toString()));
 			player.setCompassTarget(deathlocation);
 			player.sendMessage("You died at " +deathlocation.getBlockX()+","+deathlocation.getBlockY()+","+deathlocation.getBlockZ());
-			ItemStack item = new ItemStack(Material.COMPASS, 1);
-
-			ItemMeta itemmeta = item.getItemMeta();
-			itemmeta.setDisplayName(ChatColor.GREEN+"Death Location");
 			
-
-			item.setItemMeta(itemmeta);
 			if(!player.getInventory().contains(item)) {
 			player.getInventory().addItem(new ItemStack(item));
 			}

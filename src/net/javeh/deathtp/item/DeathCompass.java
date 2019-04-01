@@ -17,4 +17,10 @@ public class DeathCompass {
 		compass.setItemMeta(itemmeta);
 		return compass;
 	}
+	public void setDeathLocation() {
+		
+	}
+	public void setSpawnPoint() {
+		
+	}
 }
