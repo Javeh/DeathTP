@@ -13,6 +13,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		//commands
 			this.getCommand("recover").setExecutor(new RecoverCommand());
+		//	this.getCommand("deathcompass").setExecutor(new DeathCompassCommand());
 			this.getCommand("deathcompass").setExecutor(new DeathCompassCommand());
 			this.getCommand("resetcompass").setExecutor(new ResetCompassCommand());
 		//events

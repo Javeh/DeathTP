@@ -7,16 +7,21 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class CompassDropListener implements Listener {
- public void onPlayerDropItem(PlayerDropItemEvent event){
-	 ItemStack item = new ItemStack(Material.COMPASS, 1);
+import net.javeh.deathtp.item.DeathCompass;
 
-		ItemMeta itemmeta = item.getItemMeta();
-		itemmeta.setDisplayName(ChatColor.GREEN+"Death Location");
+public class CompassDropListener implements Listener {
+	DeathCompass compass = new DeathCompass();
+	ItemStack item = compass.get();
+	
+ public void onPlayerDropItem(PlayerDropItemEvent event){
+//	 ItemStack item = new ItemStack(Material.COMPASS, 1);
+
+	//	ItemMeta itemmeta = item.getItemMeta();
+		//itemmeta.setDisplayName(ChatColor.GREEN+"Death Location");
 		
 
-		item.setItemMeta(itemmeta); 
-		if(event.getItemDrop()==item) { //presently does not work, have to take it on the honor system
+		//item.setItemMeta(itemmeta); 
+		if(event.getItemDrop().getItemStack()==item) { //presently does not work, have to take it on the honor system
 			event.isCancelled();
 		}
 	}

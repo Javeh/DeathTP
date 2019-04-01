@@ -14,10 +14,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.javeh.deathtp.item.DeathCompass;
 import net.javeh.deathtp.listener.DeathListener;
 
 public class DeathCompassCommand implements CommandExecutor {
-
+	DeathCompass compass = new DeathCompass();
+	ItemStack item = compass.get();
+	
 	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] arg3) {
