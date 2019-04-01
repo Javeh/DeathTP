@@ -18,7 +18,7 @@ public class CompassDropListener implements Listener {
 	
 	@EventHandler(priority = EventPriority.LOWEST)
  public void onPlayerDrop(PlayerDropItemEvent event){
-	 event.getPlayer().sendMessage(ChatColor.GREEN+"DROPPED ITEM");
+		System.out.println("Event");
 //	 ItemStack item = new ItemStack(Material.COMPASS, 1);
 
 	//	ItemMeta itemmeta = item.getItemMeta();
@@ -26,9 +26,10 @@ public class CompassDropListener implements Listener {
 		
 
 		//item.setItemMeta(itemmeta); 
-		if(event.getItemDrop().getItemStack().getType()==item.getType()) { //presently does not work, have to take it on the honor system
-			event.getPlayer().sendMessage("Dropped a compass");
-			event.setCancelled(true);
+		//if(event.getItemDrop().getItemStack().getItemMeta().toString()==item.getItemMeta().toString()) { //presently does not work, have to take it on the honor system
+			if(event.getItemDrop().getItemStack().getItemMeta()) == item.getItemMeta()) {
+		event.setCancelled(true);
+			System.out.println("Cancelled");
 		}
 	}
 }
