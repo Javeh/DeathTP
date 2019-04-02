@@ -21,7 +21,7 @@ public class ResetCompassCommand implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
 			DeathCompass compass = new DeathCompass();
-			ItemStack item = compass.get();
+		//	ItemStack item = compass.get();
 			Player player = (Player) sender;
 			World world = player.getLocation().getWorld();
 			if(player.getBedSpawnLocation() != null) {
@@ -32,7 +32,7 @@ public class ResetCompassCommand implements CommandExecutor{
 			}
 			
 
-			player.getInventory().removeItem(new ItemStack(item));
+			player.getInventory().removeItem(new ItemStack(compass));
 		}
 		return true;
 	}

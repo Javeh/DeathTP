@@ -1,7 +1,5 @@
 package net.javeh.deathtp.command;
 
-
-
 import java.util.ArrayList;
 
 import org.bukkit.ChatColor;
@@ -19,20 +17,29 @@ import net.javeh.deathtp.listener.DeathListener;
 
 public class DeathCompassCommand implements CommandExecutor {
 	DeathCompass compass = new DeathCompass();
-	ItemStack item = compass.get();
-	
+	// ItemStack item = compass.get();
+
 	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] arg3) {
-		
-		if(sender instanceof Player) {
+
+		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			Location deathlocation = (DeathListener.map.get(player.getName().toString()));
-			player.setCompassTarget(deathlocation);
-			player.sendMessage("You died at " +deathlocation.getBlockX()+","+deathlocation.getBlockY()+","+deathlocation.getBlockZ());
-			
-			if(!player.getInventory().contains(item)) {
-			player.getInventory().addItem(new ItemStack(item));
+			if (DeathListener.map.get(player.getName().toString()) != null) {
+				Location deathlocation = (DeathListener.map.get(player.getName().toString()));
+
+				if (player.hasPermission("deathtp.compass")) {
+					player.setCompassTarget(deathlocation);
+					player.sendMessage("You died at " + deathlocation.getBlockX() + "," + deathlocation.getBlockY()
+							+ "," + deathlocation.getBlockZ());
+
+					if (!player.getInventory().contains(compass)) {
+						player.getInventory().addItem(new ItemStack(compass));
+					}
+				}
+			}
+			else {
+				player.sendMessage(ChatColor.GOLD+"You haven't died recently!");
 			}
 		}
 		return true;

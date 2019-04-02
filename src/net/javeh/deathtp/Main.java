@@ -6,6 +6,7 @@ import net.javeh.deathtp.command.DeathCompassCommand;
 import net.javeh.deathtp.command.RecoverCommand;
 import net.javeh.deathtp.command.ResetCompassCommand;
 import net.javeh.deathtp.listener.CompassDropListener;
+import net.javeh.deathtp.listener.CompassMoveListener;
 import net.javeh.deathtp.listener.DeathListener;
 
 public class Main extends JavaPlugin {
@@ -19,6 +20,7 @@ public class Main extends JavaPlugin {
 		//events
 		     getServer().getPluginManager().registerEvents(new DeathListener(), this);
 		     getServer().getPluginManager().registerEvents(new CompassDropListener(), this);
+		     getServer().getPluginManager().registerEvents(new CompassMoveListener(), this);
 		}
 		
 	@Override
