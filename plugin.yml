@@ -6,9 +6,28 @@ commands:
    recover:
           description: TPs to death location
           usage: /recover
+   deathtp:
+           description: TPs to death location
+           usage: /deathtp
    deathcompass:
           description: Points compass to death location
           usage: /deathlocation
    resetcompass:
           description: resets compass
           usage: /resetcompass
+permissions:
+    deathtp.*:
+        description: Gives access to all DeathTP commands
+        children:
+          deathtp.tp: true
+          deathtp.broadcast: false
+          deathtp.compass: true
+    deathtp.tp:
+        description: Allows teleportation  back to the site of death
+        default: op
+    deathtp.broadcast:
+        description: Broadcasts that the user is using the tp command, only works if the user has tp permissions
+        default: op
+    deathtp.compass:
+      description: Gives player a compass that points to the site of their death
+      default: op

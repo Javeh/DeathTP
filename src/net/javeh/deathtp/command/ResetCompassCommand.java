@@ -2,7 +2,10 @@ package net.javeh.deathtp.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Instrument;
 import org.bukkit.Material;
+import org.bukkit.Note;
+import org.bukkit.Note.Tone;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,7 +34,7 @@ public class ResetCompassCommand implements CommandExecutor{
 				player.setCompassTarget(world.getSpawnLocation());
 			}
 			
-
+			player.playNote(player.getLocation(), Instrument.CHIME, Note.sharp(1, Tone.F));
 			player.getInventory().removeItem(new ItemStack(compass));
 		}
 		return true;
