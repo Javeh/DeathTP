@@ -27,6 +27,7 @@ public class RecoverCommand implements CommandExecutor {
 			if(DeathListener.map.get(player.getName().toString()) != null) {
 			if(player.hasPermission("deathtp.tp")) {
 			player.teleport((DeathListener.map.get(player.getName().toString())));
+			DeathListener.map.remove(player.getName().toString());
 			player.playNote(player.getLocation(), Instrument.PIANO, Note.natural(1, Tone.D));
 			if(player.hasPermission("deathtp.broadcast")) {
 			Bukkit.broadcastMessage(ChatColor.GREEN+""+ChatColor.BOLD+player.getName()+" "+ChatColor.RESET+""+ChatColor.YELLOW+messages[rand.nextInt(messages.length -1)]);
