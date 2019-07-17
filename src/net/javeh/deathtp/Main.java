@@ -1,5 +1,8 @@
 package net.javeh.deathtp;
 
+import java.util.HashMap;
+
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.javeh.deathtp.command.DeathCompassCommand;

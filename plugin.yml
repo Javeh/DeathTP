@@ -20,14 +20,18 @@ permissions:
         description: Gives access to all DeathTP commands
         children:
           deathtp.tp: true
-          deathtp.broadcast: false
           deathtp.compass: true
+          deathtp.pvp: true
     deathtp.tp:
         description: Allows teleportation  back to the site of death
-        default: op
+        default: true
     deathtp.broadcast:
         description: Broadcasts that the user is using the tp command, only works if the user has tp permissions
-        default: op
+        default: false
     deathtp.compass:
       description: Gives player a compass that points to the site of their death
-      default: op
+      default: true
+    deathtp.pvp:
+      description: Allows player to TP back to where they were killed by another player
+      default: false
+    
