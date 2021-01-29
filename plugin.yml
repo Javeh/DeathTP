@@ -34,4 +34,7 @@ permissions:
     deathtp.pvp:
       description: Allows player to TP back to where they were killed by another player
       default: false
+    deathtp.printout:
+      description: Tells a player where they died
+      default: true
     

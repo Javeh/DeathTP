@@ -2,6 +2,7 @@ package net.javeh.deathtp.listener;
 
 import java.util.HashMap;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -16,6 +17,11 @@ public class DeathListener implements Listener {
     public static HashMap<String, Location> map = new HashMap<>();
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerDeath(PlayerDeathEvent e) {
+		if(e.getEntity().hasPermission("deathtp.printout")) {
+			e.getEntity().sendMessage(ChatColor.RED + "You died at: " +""+ChatColor.BOLD+ ""+ChatColor.GREEN + e.getEntity().getLocation().getBlockX() + ", " + 
+		e.getEntity().getLocation().getBlockY() + ", " + e.getEntity().getLocation().getBlockZ());
+		}
+		
 		boolean lawfulDeath = true;
 		if(e.getEntity().getKiller() != null) {
 			lawfulDeath = false;
@@ -32,6 +38,7 @@ public class DeathListener implements Listener {
 		if(e.getDrops().contains(compass)){
 			e.getDrops().remove(compass);
 			}
+		
 	}
 	}
 }
